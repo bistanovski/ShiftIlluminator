@@ -1,35 +1,36 @@
 {
   "name": "ShiftIlluminator",
   "version": "0.0.2",
-    "description": "ShiftIlluminator is the web frontend part of the ShiftRay family projects. It displays real time data received from devices' sensors",
-    "repository": "https://github.com/bistanovski/ShiftIlluminator",
-    "author": "Darko Bistanovski",
-    "license": "MIT",
-  "devDependencies": {
-    "react-scripts": "^1.0.10"
+  "description": "ShiftIlluminator is the web frontend part of the ShiftRay family projects. It displays real time data received from devices' sensors",
+  "repository": "https://github.com/bistanovski/ShiftIlluminator",
+  "author": "Darko Bistanovski",
+  "license": "MIT",
+  "scripts": {
+    "dev": "webpack-dev-server --inline --hot --env.dev",
+    "build": "rimraf dist && webpack -p --progress --hide-modules"
   },
   "dependencies": {
-    "cuid": "^1.3.8",
-    "lodash": "^4.17.4",
-    "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-color": "^2.13.1",
-    "react-dom": "^16.2.0",
-    "react-portal": "^4.1.2",
-    "react-redux": "^5.0.5",
-    "react-toggle-display": "^2.2.0",
-    "redux": "^3.7.1",
-    "redux-devtools-extension": "^2.13.2",
-    "redux-orm": "^0.9.4",
-    "redux-thunk": "^2.2.0",
-    "reselect": "^3.0.1",
-    "semantic-ui-css": "^2.2.10",
-    "semantic-ui-react": "^0.77.1"
+    "element-ui": "^2.0.0",
+    "vue": "^2.5.2"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+  "engines": {
+    "node": ">=6"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.6.0",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.0",
+    "babel-preset-vue-app": "^1.2.0",
+    "css-loader": "^0.27.0",
+    "file-loader": "^0.10.1",
+    "html-webpack-plugin": "^2.24.1",
+    "postcss-loader": "^1.3.3",
+    "rimraf": "^2.5.4",
+    "style-loader": "^0.13.2",
+    "url-loader": "^0.5.8",
+    "vue-loader": "^13.3.0",
+    "vue-template-compiler": "^2.5.2",
+    "webpack": "^2.4.1",
+    "webpack-dev-server": "^2.4.2"
   }
 }
