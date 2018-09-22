@@ -9,6 +9,8 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
+import RestClient from '../RestClient';
+
 const styles = {
   root: {
     width: '100%',
@@ -33,13 +35,13 @@ const data = [
   createData('Gingerbread', 356, 16.0, 49, 3.9),
 ];
 
-class SimpleTable extends React.Component {
+class Users extends React.Component {
   render() {
     const { classes } = this.props;
     return (
       <div>
         <Typography variant="display1" gutterBottom>
-          Products
+          Users
         </Typography>
         <Paper className={classes.root}>
           <Table className={classes.table}>
@@ -72,10 +74,22 @@ class SimpleTable extends React.Component {
       </div>
     );
   }
+
+  onSuccessUsersFetch(data) {
+    console.log("UsersFetch success:", data);
+  }
+  
+  onErrorUsersFetch(error) {
+    console.log("UsersFetch failed:", error);
+  }
+
+  componentDidMount() {
+    RestClient.getUsers(this.onSuccessUsersFetch, this.onErrorUsersFetch);
+  }
 }
 
-SimpleTable.propTypes = {
+Users.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(SimpleTable);
+export default withStyles(styles)(Users);

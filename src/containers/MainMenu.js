@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -6,12 +7,10 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
-import Badge from '@material-ui/core/Badge';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import NotificationsIcon from '@material-ui/icons/Notifications';
 
-import { mainListItems } from './listItems';
+import { mainListItems } from '../components/MenuListItems';
+import { setOrdersChartVisibility } from '../actions/ChartActions';
 
 const drawerWidth = 180;
 
@@ -46,14 +45,9 @@ render() {
         <AppBar position="absolute" className={classes.appBar}>
           <Toolbar className={classes.toolbar}>
             <Typography variant="title" color="inherit" noWrap className={classes.title}>
-              Dashboard
+              Shift illuminator
             </Typography>
-            <IconButton color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <Button onClick={this.props.toggleCharts} variant="contained" color="secondary" className={classes.toggleChartsButton}>
+            <Button onClick={() => this.props.setOrdersChartVisible(!this.props.showOrdersChart.visible)} variant="contained" color="secondary" className={classes.toggleChartsButton}>
               Toggle charts
             </Button>
           </Toolbar>
@@ -65,7 +59,9 @@ render() {
           }}
         >
           <div className={classes.toolbar} />
+          
           <List>{mainListItems}</List>
+        
         </Drawer>
       </div>
     );
@@ -77,4 +73,18 @@ MainMenu.propTypes = {
   greetMethod: PropTypes.func
 };
 
-export default withStyles(styles)(MainMenu);
+const mapStateToProps = (state) => {
+  return {
+    showOrdersChart: state.ordersChartReducer
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setOrdersChartVisible: (visible) => {
+      dispatch(setOrdersChartVisibility(visible));
+    }
+  };
+};
+
+export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(MainMenu));

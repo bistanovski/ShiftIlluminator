@@ -8,6 +8,7 @@
   "dependencies": {
     "@material-ui/core": "latest",
     "@material-ui/icons": "latest",
+    "axios": "^0.18.0",
     "babel-plugin-transform-class-properties": "latest",
     "babel-preset-env": "latest",
     "babel-preset-react": "latest",
@@ -15,8 +16,13 @@
     "prop-types": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
-    "recharts": "latest"
+    "recharts": "latest",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "store": "^2.0.12"
   },
   "scripts": {
     "start": "parcel src/index.html",
@@ -24,6 +30,7 @@
     "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "devDependencies": {
-    "@storybook/react": "^3.4.10"
+    "@storybook/react": "^3.4.10",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0"
   }
 }
