@@ -36,5 +36,10 @@ export default {
   // Get all registered Users
   getUsers(onSuccess, onError){
     RestClient.sendRequest(RequestType.GET, '/users', null, onSuccess, onError);
+  },
+
+  // Get all registered Devices
+  getDevices(onSuccess, onError){
+    RestClient.sendRequest(RequestType.GET, '/devices', null, onSuccess, onError);
   }
 }

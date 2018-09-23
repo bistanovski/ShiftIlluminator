@@ -20,12 +20,12 @@ const data = [
   { name: 'Sun', Visits: 4490, Orders: 4300 },
 ];
 
-const Devices = (props) => {
+const Charts = (props) => {
   return (
     props.showOrdersChart.visible ? 
     <div>
         <Typography variant="display1" gutterBottom>
-          Devices
+          Charts
         </Typography>
         
       <Typography component="div">
@@ -54,4 +54,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Devices);
+export default connect(mapStateToProps)(Charts);
