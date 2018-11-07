@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
@@ -17,7 +18,7 @@ const styles = theme =>({
   },
 });
 
-class Devices extends React.Component {
+class DevicesList extends React.Component {
   state = {
     devicesData: []
   }
@@ -26,9 +27,12 @@ class Devices extends React.Component {
     const { classes } = this.props;
     return (
       <div className={classes.root}>
-        <GridList cellHeight={290}>
+        <Typography variant="display1" gutterBottom>
+          Devices
+        </Typography>
+        <GridList cellHeight={220}>
           {this.state.devicesData.map( device => (
-            <GridListTile style={{'width': '360', 'margin': 10}}>
+            <GridListTile style={{'width': '360', 'margin': 10}} key={device.device_id}>
               <DeviceCard deviceData={device}></DeviceCard>
             </GridListTile>
           ))}
@@ -51,8 +55,8 @@ class Devices extends React.Component {
   }
 }
 
-Devices.propTypes = {
+DevicesList.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Devices);
+export default withStyles(styles)(DevicesList);

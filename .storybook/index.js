@@ -1,17 +1,19 @@
 import React from 'react';
 import {Provider} from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+import StoryRouter from 'storybook-react-router';
 
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import Store from '../src/Store';
 import Users from '../src/containers/Users';
-import Devices from '../src/containers/Devices';
 import Charts from '../src/components/Charts';
 import MainMenu from '../src/containers/MainMenu';
 import MainAppBar from '../src/components/MainAppBar'
 import DeviceCard from '../src/components/DeviceCard';
+import DevicesList from '../src/containers/DevicesList';
+import DeviceDetails from '../src/components/DeviceDetails';
 
 const SampleDeviceData = {
   "device_id": "8CD1666115E2012A0220737C7D302C1E21D979B3",
@@ -66,10 +68,14 @@ storiesOf('Charts', module)
 
 storiesOf('Devices', module)
   .addDecorator(story => <Provider store={Store}>{story()}</Provider>)
-  .add('All Devices', () => (
-    <Devices></Devices>
+  .addDecorator(StoryRouter())
+  .add('DevicesList', () => (
+    <DevicesList></DevicesList>
   ))
   .add('Device card', () => (
     <DeviceCard deviceData={SampleDeviceData}></DeviceCard>
+    ))
+  .add('Device details', () => (
+    <DeviceDetails match={{params: {device_id: "4DF1666115E2012A0220737C7D302C1E21D979B0"}}}></DeviceDetails>
     ))
 ;

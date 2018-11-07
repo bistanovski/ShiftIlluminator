@@ -41,5 +41,10 @@ export default {
   // Get all registered Devices
   getDevices(onSuccess, onError){
     RestClient.sendRequest(RequestType.GET, '/devices', null, onSuccess, onError);
-  }
+  },
+
+  // Get all Device's sensors
+  getDeviceSensors(deviceID, onSuccess, onError){
+    RestClient.sendRequest(RequestType.GET, '/sensors/' + deviceID, null, onSuccess, onError);
+  },
 }

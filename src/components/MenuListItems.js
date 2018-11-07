@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom'
 
 export const mainListItems = (
   <div>
-    <Link to='/'>
+    <Link to='/' style={{ textDecoration: 'none' }}>
       <ListItem button>
         <ListItemIcon>
           <DashboardIcon />
@@ -24,7 +24,7 @@ export const mainListItems = (
       </ListItem>
     </Link>
     <Divider />
-    <Link to='/devices'>
+    <Link to='/devices' style={{ textDecoration: 'none' }}>
       <ListItem button>
         <ListItemIcon>
           <ShoppingCartIcon />
@@ -35,7 +35,7 @@ export const mainListItems = (
       </ListItem>
     </Link>
     <Divider />
-    <Link to='/users'>
+    <Link to='/users' style={{ textDecoration: 'none' }}>
       <ListItem button>
         <ListItemIcon>
           <PeopleIcon />
@@ -46,7 +46,7 @@ export const mainListItems = (
       </ListItem>
     </Link>
     <Divider />
-    <Link to='/charts'>
+    <Link to='/charts' style={{ textDecoration: 'none' }}>
       <ListItem button>
         <ListItemIcon>
           <BarChartIcon />
@@ -57,7 +57,7 @@ export const mainListItems = (
       </ListItem>
     </Link>
     <Divider />
-    <Link to='/settings'>
+    <Link to='/settings' style={{ textDecoration: 'none' }}>
       <ListItem button>
         <ListItemIcon>
           <SettingsIcon />

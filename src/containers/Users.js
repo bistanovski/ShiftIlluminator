@@ -34,22 +34,42 @@ class Users extends React.Component {
           <Table className={classes.table}>
             <TableHead>
               <TableRow>
-                <TableCell>Username</TableCell>
-                <TableCell>Email</TableCell>
-                <TableCell>First Name</TableCell>
-                <TableCell>Last Name</TableCell>
-                <TableCell>Updated</TableCell>
+                <TableCell><Typography gutterBottom component="p"><strong>Username</strong></Typography></TableCell>
+                <TableCell><Typography gutterBottom component="p"><strong>Email</strong></Typography></TableCell>
+                <TableCell><Typography gutterBottom component="p"><strong>First Name</strong></Typography></TableCell>
+                <TableCell><Typography gutterBottom component="p"><strong>Last Name</strong></Typography></TableCell>
+                <TableCell><Typography gutterBottom component="p"><strong>Updated</strong></Typography></TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {this.state.usersData.map(n => {
                 return (
                   <TableRow key={n.username}>
-                    <TableCell>{n.username}</TableCell>
-                    <TableCell>{n.email}</TableCell>
-                    <TableCell>{n.first_name}</TableCell>
-                    <TableCell>{n.last_name}</TableCell>
-                    <TableCell>{n.updated_at}</TableCell>
+                    <TableCell>
+                      <Typography gutterBottom component="p">
+                        {n.username}
+                      </Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography gutterBottom component="p">
+                        {n.email}
+                      </Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography gutterBottom component="p">
+                        {n.first_name}
+                      </Typography>
+                    </TableCell>
+                    <TableCell>  
+                      <Typography gutterBottom component="p">
+                        {n.last_name}
+                      </Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography gutterBottom component="p">
+                        {n.updated_at}
+                      </Typography>
+                    </TableCell>
                   </TableRow>
                 );
               })}

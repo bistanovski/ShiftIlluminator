@@ -6,7 +6,8 @@ import Settings from './components/Settings';
 import Dashboard from './components/Dashboard';
 
 import Users from './containers/Users';
-import Devices from './containers/Devices';
+import DevicesList from './containers/DevicesList';
+import DeviceDetails from './components/DeviceDetails';
 
 const RoutedContent = (props) => {
   return (
@@ -14,8 +15,9 @@ const RoutedContent = (props) => {
       <Route exact path="/" component={Dashboard}/>
       <Route exact path="/users" component={Users}/>
       <Route exact path="/charts" component={Charts}/>
-      <Route exact path="/devices" component={Devices}/>
+      <Route exact path="/devices" component={DevicesList}/>
       <Route exact path="/settings" component={Settings}/>
+      <Route path="/device/:device_id" component={DeviceDetails} />
     </Switch>
   )
 };
