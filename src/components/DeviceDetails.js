@@ -4,8 +4,12 @@ import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
 import RestClient from '../RestClient';
+import { sourceImageByDevice, colorsByDevice } from '../utils/DeviceUtils';
 
 const styles = theme =>({
+  detailsTitle: {
+    backgroundColor: 'yellow',
+  },
 });
 
 class DeviceDetails extends React.Component {
@@ -18,12 +22,15 @@ class DeviceDetails extends React.Component {
   }
 
   render () {
+    const classes = this.props.classes;
     return (
       <div id="root">
-          <Typography variant="display1" gutterBottom>
-            Device
-          </Typography>
-          {this.state.deviceID}
+          <div className={classes.detailsTitle}>
+            <Typography variant="display1" gutterBottom>
+              Device
+            </Typography>
+            {this.state.deviceID}
+          </div>
       </div>
     )
   }

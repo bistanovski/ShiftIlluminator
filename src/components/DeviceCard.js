@@ -12,33 +12,8 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import Fade from '@material-ui/core/Fade';
 
-import MobileIconImage from '../../statics/images/mobile-icon.png';
-import DesktopIconImage from '../../statics/images/desktop-icon.png';
-import EmbeddedIconImage from '../../statics/images/embedded-icon.png';
-
-const DeviceTypes = {
-  MOBILE: 'MOBILE',
-  DESKTOP: 'DESKTOP',
-  EMBEDDED: 'EMBEDDED'
-};
-
-const sourceImageByDevice = (type) => {
-  switch(type){
-    case DeviceTypes.MOBILE: return MobileIconImage;
-    case DeviceTypes.DESKTOP: return DesktopIconImage;
-    case DeviceTypes.EMBEDDED: return EmbeddedIconImage; 
-  }
-};
-
-const colorsByDevice = (type) => {
-  switch(type){
-    case DeviceTypes.MOBILE: return '#e5d7a8';
-    case DeviceTypes.DESKTOP: return '#c3d88a';
-    case DeviceTypes.EMBEDDED: return '#b9e5da'; 
-  }
-};
+import { sourceImageByDevice, colorsByDevice } from '../utils/DeviceUtils';
 
 const styles = {
   card: {
