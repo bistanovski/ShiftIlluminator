@@ -12,10 +12,10 @@ export const CustomTheme = createMuiTheme({
       contrastText: '#ffffff',
     },
     secondary: {
-      light: '#ffddc1',
-      main: '#ffab91',
-      dark: '#c97b63',
-      contrastText: '#00000',
+      light: '#b75f5f',
+      main: '#af3b3b',
+      dark: '#9e0404',
+      contrastText: '#ffffff',
     }
   }
 });

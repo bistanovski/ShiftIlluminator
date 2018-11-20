@@ -19,7 +19,8 @@ const styles = {
   card: {
     display: 'flex',
     flexDirection: 'column',
-    width: 360
+    width: 360,
+    borderRadius: '10px'
   },
   cardActionArea: {
     display: 'flex',

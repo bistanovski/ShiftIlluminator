@@ -101,7 +101,7 @@ storiesOf('Devices', module)
     <DeviceCard deviceData={SampleDeviceData}></DeviceCard>
     ))
   .add('Sensor card', () => (
-    <SensorCard sensorData={SampleSensorData}></SensorCard>
+    <SensorCard sensorData={SampleSensorData} deviceType={SampleSensorData.type}></SensorCard>
     ))
   .add('Device details', () => (
     <DeviceDetails match={{params: {device_id: "4DF1666115E2012A0220737C7D302C1E21D979B0"}}}></DeviceDetails>
