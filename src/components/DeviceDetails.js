@@ -10,6 +10,8 @@ import SensorCard from '../components/SensorCard';
 import { sourceImageByDevice, colorsByDevice } from '../utils/DeviceUtils';
 import { ListItem } from '@material-ui/core';
 
+import { ShiftMqttClient } from '../MqttClient';
+
 const styles = theme => ({
   devicePaper: {
     ...theme.mixins.gutters(),
@@ -55,7 +57,7 @@ class DeviceDetails extends React.Component {
           <List>
             {this.state.deviceSensors.map(sensor => (
               <ListItem style={{ 'width': '100%' }} key={sensor.id}>
-                <SensorCard sensorData={sensor} deviceType={this.state.deviceType}></SensorCard>
+                <SensorCard sensorData={sensor} deviceType={this.state.deviceType} mqttClient={ShiftMqttClient}></SensorCard>
               </ListItem>
             ))}
           </List>

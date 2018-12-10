@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import StoryRouter from 'storybook-react-router';
 
 import { storiesOf } from '@storybook/react';
+import { ShiftMqttClient } from '../src/MqttClient';
 
 import Store from '../src/Store';
 import Users from '../src/containers/Users';
@@ -28,6 +29,7 @@ const SampleDeviceData = {
 
 const SampleSensorData = {
   "sensor_name": "Tilt",
+  "device_id": "8CD1666115E2012A0220737C7D302C1E21D979B3",
   "type": "DESKTOP", //DESKTOP, MOBILE, EMBEDDED
   "operating_system": "Linux",
   "os_version": "16.04.5",
@@ -101,7 +103,7 @@ storiesOf('Devices', module)
     <DeviceCard deviceData={SampleDeviceData}></DeviceCard>
     ))
   .add('Sensor card', () => (
-    <SensorCard sensorData={SampleSensorData} deviceType={SampleSensorData.type}></SensorCard>
+    <SensorCard sensorData={SampleSensorData} deviceType={SampleSensorData.type} mqttClient={ShiftMqttClient}></SensorCard>
     ))
   .add('Device details', () => (
     <DeviceDetails match={{params: {device_id: "4DF1666115E2012A0220737C7D302C1E21D979B0"}}}></DeviceDetails>

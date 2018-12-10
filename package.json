@@ -12,6 +12,7 @@
     "babel-plugin-transform-class-properties": "latest",
     "babel-preset-env": "latest",
     "babel-preset-react": "latest",
+    "mqtt": "^2.18.8",
     "parcel-bundler": "^1.10.3",
     "prop-types": "latest",
     "react": "^16.6.0",

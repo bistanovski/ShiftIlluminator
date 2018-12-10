@@ -52,9 +52,22 @@ TabContainer.propTypes = {
 
 
 class SensorCard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      tabIndex: 0,
+      switchActive: true,
+      sensorData: props.sensorData,
+      mqttTopic: props.sensorData.device_id + '_' + props.sensorData.sensor_name,
+      mqttClient: props.mqttClient
+    };
+    this.subscribeToMqttTopic(this.state.mqttTopic);
+  }
+
   state = {
     tabIndex: 0,
-    switchActive: true
+    switchActive: true,
+    sensorData: null
   };
 
   handleChange = (event, tabIndex) => {
@@ -65,23 +78,46 @@ class SensorCard extends React.Component {
     this.setState({ switchActive: !event.target.checked });
   };
 
+  subscribeToMqttTopic = (topic) => {
+    this.state.mqttClient.subscribe(topic, function(error) {
+      if(!error) {
+        console.log('Subscribed to: ', topic);
+        this.state.mqttClient.on('error', this.onMqttError);
+        this.state.mqttClient.on('message', this.onNewMqttMessage);
+      }
+      else {
+        console.log('Subscribed to: ', topic, ' failed. Error: ', error.message);
+      }
+    }.bind(this))
+  };
+
+  onMqttError = (error) => {
+    console.log('MqttError:', error);
+  };
+
+  onNewMqttMessage = (topic, message) => {
+    if(topic === this.state.mqttTopic) 
+    {
+      console.log('topic: ', topic, ' message:', message.toString());
+    }
+  };
+
   render() {
     const classes = this.props.classes;
-    const sensorData = this.props.sensorData;
 
     return (
       <Card className={classes.card}>
         <CardHeader
           avatar={
-            <Avatar aria-label="Recipe" className={classes.avatar} src={sourceImageBySensor(sensorData.sensor_name)}> N/A </Avatar>
+            <Avatar aria-label="Recipe" className={classes.avatar} src={sourceImageBySensor(this.state.sensorData.sensor_name)}> N/A </Avatar>
           }
           action={
             <div>
               <Switch onChange={this.handleSwitch} />
             </div>
           }
-          title={<b> {sensorData.sensor_name} </b>}
-          subheader={sensorData.updated_at}
+          title={<b> {this.state.sensorData.sensor_name} </b>}
+          subheader={this.state.sensorData.updated_at}
           style={{ 'backgroundColor': colorsByDevice(this.props.deviceType) }}
         >
         </CardHeader>
@@ -90,7 +126,7 @@ class SensorCard extends React.Component {
 
         <CardContent className={classes.cardContent} >
           <Tabs value={this.state.tabIndex} onChange={this.handleChange} indicatorColor="primary" textColor="primary" centered>
-            {sensorData.sensor_readings.map(sensorReading => (
+            {this.state.sensorData.sensor_readings.map(sensorReading => (
               <Tab label={sensorReading.reading_name} key={sensorReading.reading_id} />
             ))}
           </Tabs>
@@ -98,7 +134,7 @@ class SensorCard extends React.Component {
           <Divider />
           <p></p>
 
-          {sensorData.sensor_readings.map((sensorReading, index) => (
+          {this.state.sensorData.sensor_readings.map((sensorReading, index) => (
             this.state.tabIndex === index && <TabContainer key={sensorReading.reading_id}> {sensorReading.reading_id} </TabContainer>
           ))}
 
