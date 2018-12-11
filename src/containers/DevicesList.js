@@ -14,7 +14,7 @@ const styles = theme =>({
     display: 'flex',
     flexWrap: 'wrap',
     overflow: 'hidden',
-    backgroundColor: theme.palette.background.paper,
+    // backgroundColor: theme.palette.background.paper
   },
 });
 

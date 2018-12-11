@@ -11,59 +11,71 @@ import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import { Link } from 'react-router-dom'
 
+let menuItemsTextColor = '#d2d5db';
+
 export const mainListItems = (
   <div>
     <Link to='/' style={{ textDecoration: 'none' }}>
       <ListItem button>
-        <ListItemIcon>
+        <ListItemIcon style={{color: menuItemsTextColor}}>
           <DashboardIcon />
         </ListItemIcon>
-        <Typography variant="body2">
-          <ListItemText primary="Dashboard" />
+        <Typography variant="body2" >
+          <ListItemText>
+            <span style={{ color: menuItemsTextColor }}>Dashboard</span>
+          </ListItemText>
         </Typography>
       </ListItem>
     </Link>
     <Divider />
     <Link to='/devices' style={{ textDecoration: 'none' }}>
       <ListItem button>
-        <ListItemIcon>
+        <ListItemIcon style={{color: menuItemsTextColor}}>
           <ShoppingCartIcon />
         </ListItemIcon>
         <Typography variant="body2">
-          <ListItemText primary="Devices" />
+          <ListItemText>
+            <span style={{ color: menuItemsTextColor }}>Devices</span>
+          </ListItemText>
         </Typography>
       </ListItem>
     </Link>
     <Divider />
     <Link to='/users' style={{ textDecoration: 'none' }}>
       <ListItem button>
-        <ListItemIcon>
+        <ListItemIcon style={{color: menuItemsTextColor}}>
           <PeopleIcon />
         </ListItemIcon>
         <Typography variant="body2">
-          <ListItemText primary="Users" />
+          <ListItemText>
+            <span style={{ color: menuItemsTextColor }}>Users</span>
+          </ListItemText>
         </Typography>
       </ListItem>
     </Link>
     <Divider />
     <Link to='/charts' style={{ textDecoration: 'none' }}>
       <ListItem button>
-        <ListItemIcon>
+        <ListItemIcon style={{color: menuItemsTextColor}}>
           <BarChartIcon />
         </ListItemIcon>
         <Typography variant="body2">
-          <ListItemText primary="Charts" />
+          <ListItemText>
+            <span style={{ color: menuItemsTextColor }}>Charts</span>
+          </ListItemText>
         </Typography>
       </ListItem>
     </Link>
     <Divider />
     <Link to='/settings' style={{ textDecoration: 'none' }}>
       <ListItem button>
-        <ListItemIcon>
+        <ListItemIcon style={{color: menuItemsTextColor}}>
           <SettingsIcon />
         </ListItemIcon>
         <Typography variant="body2">
-          <ListItemText primary="Settings" />
+          <ListItemText>
+            <span style={{ color: menuItemsTextColor }}>Settings</span>
+          </ListItemText>
         </Typography>
       </ListItem>
     </Link>

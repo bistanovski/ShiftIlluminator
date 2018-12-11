@@ -17,8 +17,8 @@ const styles = theme => ({
     ...theme.mixins.gutters(),
     paddingTop: theme.spacing.unit * 2,
     paddingBottom: theme.spacing.unit * 2,
-    borderRadius: '40px',
-    backgroundColor: '#627f78'
+    borderRadius: '20px',
+    backgroundColor: '#257faa'
   },
 });
 

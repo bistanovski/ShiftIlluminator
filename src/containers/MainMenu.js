@@ -12,7 +12,8 @@ const styles = theme => ({
   drawerPaper: {
     width: MainDrawerWidth,
     height: '100%',
-    marginTop: MainAppBarHeight
+    marginTop: MainAppBarHeight,
+    backgroundImage: 'linear-gradient(to top, #191d52 , #216e93)'
   }
 });
 

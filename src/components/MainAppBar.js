@@ -18,7 +18,8 @@ const styles = theme => ({
   appBar: {
     position: 'fixed',
     zIndex: theme.zIndex.drawer + 1,
-    height: MainAppBarHeight
+    height: MainAppBarHeight,
+    backgroundImage: 'linear-gradient(to left, #191d52 , #216e93)'
   },
   toggleChartsButton: {
     marginLeft: 15,
