@@ -3,10 +3,10 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import DashboardIcon from '@material-ui/icons/DashboardOutlined';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCartOutlined';
 import PeopleIcon from '@material-ui/icons/PeopleOutlined';
 import BarChartIcon from '@material-ui/icons/BarChartOutlined';
 import SettingsIcon from '@material-ui/icons/SettingsOutlined';
+import DevicesIcon from '@material-ui/icons/DevicesOutlined';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import { Link } from 'react-router-dom'
@@ -31,7 +31,7 @@ export const mainListItems = (
     <Link to='/devices' style={{ textDecoration: 'none' }}>
       <ListItem button>
         <ListItemIcon style={{color: menuItemsTextColor}}>
-          <ShoppingCartIcon />
+          <DevicesIcon />
         </ListItemIcon>
         <Typography variant="body2">
           <ListItemText>
