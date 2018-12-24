@@ -17,7 +17,7 @@ import DevicesList from '../src/containers/DevicesList';
 import DeviceDetails from '../src/components/DeviceDetails';
 
 const SampleDeviceData = {
-  "device_id": "8CD1666115E2012A0220737C7D302C1E21D979B3",
+  "device_id": "8CD1666115E2012A0220737C7D302C1E21D979B6",
   "name": "Asus Laptop",
   "type": "DESKTOP", //DESKTOP, MOBILE, EMBEDDED
   "operating_system": "Linux",
@@ -29,7 +29,7 @@ const SampleDeviceData = {
 
 const SampleSensorData = {
   "sensor_name": "Tilt",
-  "device_id": "8CD1666115E2012A0220737C7D302C1E21D979B3",
+  "device_id": "8CD1666115E2012A0220737C7D302C1E21D979B6",
   "type": "DESKTOP", //DESKTOP, MOBILE, EMBEDDED
   "operating_system": "Linux",
   "os_version": "16.04.5",
@@ -106,6 +106,6 @@ storiesOf('Devices', module)
     <SensorCard sensorData={SampleSensorData} deviceType={SampleSensorData.type} mqttClient={ShiftMqttClient}></SensorCard>
     ))
   .add('Device details', () => (
-    <DeviceDetails match={{params: {device_id: "4DF1666115E2012A0220737C7D302C1E21D979B0"}}}></DeviceDetails>
+    <DeviceDetails match={{params: {device_id: "8CD1666115E2012A0220737C7D302C1E21D979B6"}}}></DeviceDetails>
     ))
 ;
