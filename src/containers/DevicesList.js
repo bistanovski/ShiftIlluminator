@@ -2,21 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
 
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import DeviceCard from '../components/DeviceCard';
 
 import RestClient from '../RestClient';
-
-const styles = theme =>({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    overflow: 'hidden',
-    // backgroundColor: theme.palette.background.paper
-  },
-});
 
 class DevicesList extends React.Component {
   state = {
@@ -26,7 +18,7 @@ class DevicesList extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-      <div className={classes.root}>
+      <div>
         <Typography variant="display1" gutterBottom>
           Devices
         </Typography>
@@ -59,4 +51,4 @@ DevicesList.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(DevicesList);
+export default (DevicesList);

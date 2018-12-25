@@ -54,19 +54,6 @@ export const mainListItems = (
       </ListItem>
     </Link>
     <Divider />
-    <Link to='/charts' style={{ textDecoration: 'none' }}>
-      <ListItem button>
-        <ListItemIcon style={{color: menuItemsTextColor}}>
-          <BarChartIcon />
-        </ListItemIcon>
-        <Typography variant="body2">
-          <ListItemText>
-            <span style={{ color: menuItemsTextColor }}>Charts</span>
-          </ListItemText>
-        </Typography>
-      </ListItem>
-    </Link>
-    <Divider />
     <Link to='/settings' style={{ textDecoration: 'none' }}>
       <ListItem button>
         <ListItemIcon style={{color: menuItemsTextColor}}>

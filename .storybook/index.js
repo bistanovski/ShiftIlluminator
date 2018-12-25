@@ -8,11 +8,10 @@ import { ShiftMqttClient } from '../src/MqttClient';
 
 import Store from '../src/Store';
 import Users from '../src/containers/Users';
-import Charts from '../src/components/Charts';
 import MainMenu from '../src/containers/MainMenu';
 import MainAppBar from '../src/components/MainAppBar'
 import DeviceCard from '../src/components/DeviceCard';
-import SensorCard from '../src/components/SensorCard';
+import TiltSensorCard from '../src/components/sensorCards/TiltSensorCard';
 import DevicesList from '../src/containers/DevicesList';
 import DeviceDetails from '../src/components/DeviceDetails';
 
@@ -86,13 +85,6 @@ storiesOf('Users', module)
   ))
 ;
 
-storiesOf('Charts', module)
-  .addDecorator(story => <Provider store={Store}>{story()}</Provider>)
-  .add('All Charts', () => (
-      <Charts></Charts>
-    ))
-;
-
 storiesOf('Devices', module)
   .addDecorator(story => <Provider store={Store}>{story()}</Provider>)
   .addDecorator(StoryRouter())
@@ -103,7 +95,7 @@ storiesOf('Devices', module)
     <DeviceCard deviceData={SampleDeviceData}></DeviceCard>
     ))
   .add('Sensor card', () => (
-    <SensorCard sensorData={SampleSensorData} deviceType={SampleSensorData.type} mqttClient={ShiftMqttClient}></SensorCard>
+    <TiltSensorCard sensorData={SampleSensorData} deviceType={SampleSensorData.type} mqttClient={ShiftMqttClient}></TiltSensorCard>
     ))
   .add('Device details', () => (
     <DeviceDetails match={{params: {device_id: "8CD1666115E2012A0220737C7D302C1E21D979B6"}}}></DeviceDetails>

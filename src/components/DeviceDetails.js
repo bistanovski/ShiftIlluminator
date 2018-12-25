@@ -6,8 +6,17 @@ import List from '@material-ui/core/List';
 import Paper from '@material-ui/core/Paper';
 
 import RestClient from '../RestClient';
-import SensorCard from '../components/SensorCard';
-import { sourceImageByDevice, colorsByDevice } from '../utils/DeviceUtils';
+import SensorCard from './SensorCard';
+import TiltSensorCard from './sensorCards/TiltSensorCard';
+import LightSensorCard from './sensorCards/LightSensorCard';
+import CompassSensorCard from './sensorCards/CompassSensorCard';
+import RotationSensorCard from './sensorCards/RotationSensorCard';
+import GyroscopeSensorCard from './sensorCards/GyroscopeSensorCard';
+import ProximitySensorCard from './sensorCards/ProximitySensorCard';
+import OrientationSensorCard from './sensorCards/OrientationSensorCard';
+import AmbientLightSensorCard from './sensorCards/AmbientLightSensorCard';
+import MagnetometerSensorCard from './sensorCards/MagnetometerSensorCard';
+import AccelerometerSensorCard from './sensorCards/AccelerometerSensorCard';
 import { ListItem } from '@material-ui/core';
 
 import { ShiftMqttClient } from '../MqttClient';
@@ -57,7 +66,21 @@ class DeviceDetails extends React.Component {
           <List>
             {this.state.deviceSensors.map(sensor => (
               <ListItem style={{ 'width': '100%' }} key={sensor.id}>
-                <SensorCard sensorData={sensor} deviceType={this.state.deviceType} mqttClient={ShiftMqttClient}></SensorCard>
+                
+                {
+                  sensor.sensor_name === "Tilt" ? <TiltSensorCard sensorData={sensor} deviceType={this.state.deviceType} mqttClient={ShiftMqttClient}></TiltSensorCard> :
+                  sensor.sensor_name === "Light" ? <LightSensorCard sensorData={sensor} deviceType={this.state.deviceType} mqttClient={ShiftMqttClient}></LightSensorCard> :
+                  sensor.sensor_name === "Compass" ? <CompassSensorCard sensorData={sensor} deviceType={this.state.deviceType} mqttClient={ShiftMqttClient}></CompassSensorCard> :
+                  sensor.sensor_name === "Rotation" ? <RotationSensorCard sensorData={sensor} deviceType={this.state.deviceType} mqttClient={ShiftMqttClient}></RotationSensorCard> :
+                  sensor.sensor_name === "Gyroscope" ? <GyroscopeSensorCard sensorData={sensor} deviceType={this.state.deviceType} mqttClient={ShiftMqttClient}></GyroscopeSensorCard> :
+                  sensor.sensor_name === "Proximity" ? <ProximitySensorCard sensorData={sensor} deviceType={this.state.deviceType} mqttClient={ShiftMqttClient}></ProximitySensorCard> :
+                  sensor.sensor_name === "Orientation" ? <OrientationSensorCard sensorData={sensor} deviceType={this.state.deviceType} mqttClient={ShiftMqttClient}></OrientationSensorCard> :
+                  sensor.sensor_name === "AmbientLight" ? <AmbientLightSensorCard sensorData={sensor} deviceType={this.state.deviceType} mqttClient={ShiftMqttClient}></AmbientLightSensorCard> :
+                  sensor.sensor_name === "Magnetometer" ? <MagnetometerSensorCard sensorData={sensor} deviceType={this.state.deviceType} mqttClient={ShiftMqttClient}></MagnetometerSensorCard> :
+                  sensor.sensor_name === "Accelerometer" ? <AccelerometerSensorCard sensorData={sensor} deviceType={this.state.deviceType} mqttClient={ShiftMqttClient}></AccelerometerSensorCard> :
+                  <SensorCard sensorData={sensor} deviceType={this.state.deviceType} mqttClient={ShiftMqttClient}></SensorCard>
+                }
+             
               </ListItem>
             ))}
           </List>
