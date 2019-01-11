@@ -52,9 +52,7 @@ render() {
 }
 
 const mapStateToProps = (state) => {
-  return {
-    showOrdersChart: state.ordersChartReducer
-  };
+  return {};
 };
 
 const mapDispatchToProps = (dispatch) => {
