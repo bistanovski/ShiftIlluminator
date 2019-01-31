@@ -99,7 +99,7 @@ class RotationSensorCard extends React.Component {
     
     let chartDataSource = {
       "chart": {
-        "caption": "Sensor " + this.state.sensorName + " ticker",
+        "caption": "Sensor " + this.state.sensorName,
         "numdisplaysets": "20",
         "showrealtimevalue": "1",
         "theme": "fusion",
